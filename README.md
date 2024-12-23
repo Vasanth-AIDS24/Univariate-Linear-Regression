@@ -18,35 +18,24 @@ To implement univariate Linear Regression to fit a straight line using least squ
 Developed by: Vasanth P
 Registeration Number:24900136
 import numpy as np
-def QR_Decomposition(A):
-    n,m=A.shape
-    Q=np.empty((n,m))
-    u=np.empty((n,m))
-    R=np.zeros((n,m))
-    u[:,0]=A[:,0]
-    Q[:,0]=u[:,0]/np.linalg.norm(u[:,0])
-    for i in range(1,n):
-        u[:,i]=A[:,i]
-        for j in range(n):
-            u[:,i]-=(A[:,i]@Q[:,j])*Q[:,j]
-        Q[:,i]=u[:,i]/np.linalg.norm(u[:,i])
-    for i in range(n):
-        for j in range(i,m):
-            R[i,j]=A[:,j]@Q[:,i]
-    print("The Q Matrix is")
-    print('',Q)
-    print("The R Matrix is")
-    print('',R)
-a = np.array(eval(input()))
-QR_Decomposition(a)
-
-
-
-
-
+from matplotlib import pyplot
+X=np.array(eval(input()))
+Y=np.array(eval(input()))
+xmean=np.mean(X)
+ymean=np.mean(Y)
+num,den=0,0
+for i in range(len(X)):
+    num+=(X[i]-xmean)*(Y[i]-ymean)
+    den+=(X[i]-xmean)**2
+slope=num/den
+c=ymean-slope*xmean
+Y_pred=slope*X+c
+pyplot.scatter(X,Y,color='red')
+pyplot.plot(X,Y_pred,color='blue')
+pyplot.show()
 ```
 ## Output
-![image](https://github.com/user-attachments/assets/f28a03aa-c272-4ba9-9ac6-62647fbd99cc)
+![image](https://github.com/user-attachments/assets/8369bda7-2b48-4251-a173-6d783f370a7c)
 
 
 ## Result
