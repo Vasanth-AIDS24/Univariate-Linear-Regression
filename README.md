@@ -35,8 +35,7 @@ pyplot.plot(X,Y_pred,color='blue')
 pyplot.show()
 ```
 ## Output
-![image](https://github.com/user-attachments/assets/8369bda7-2b48-4251-a173-6d783f370a7c)
-
-
+![alt text](image.png)
+![alt text](image-1.png)
 ## Result
 Thus the univariate Linear Regression was implemented to fit a straight line using least squares.
